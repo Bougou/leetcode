@@ -6,3 +6,9 @@ type TreeNode struct {
 	Left  *TreeNode
 	Right *TreeNode
 }
+
+// ListNode do
+type ListNode struct {
+	Val  int
+	Next *ListNode
+}
