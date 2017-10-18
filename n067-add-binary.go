@@ -1,3 +1,7 @@
+package main
+
+import "strconv"
+
 func addBinary(a string, b string) string {
 	aLen := len(a)
 	bLen := len(b)
@@ -32,4 +36,3 @@ func addBinary(a string, b string) string {
 
 	return ret
 }
-
