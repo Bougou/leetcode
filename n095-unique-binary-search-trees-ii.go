@@ -1,3 +1,5 @@
+package main
+
 /**
  * Definition for a binary tree node.
  * type TreeNode struct {
@@ -6,7 +8,7 @@
  *     Right *TreeNode
  * }
  */
- func generateTrees(n int) []*TreeNode {
+func generateTrees(n int) []*TreeNode {
     return generateTreesHelper(1, n)
 }
 
