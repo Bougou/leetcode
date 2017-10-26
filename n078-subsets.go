@@ -16,6 +16,9 @@
 //   []
 // ]
 
+// Recursive Solution
+// Suppose S(n) represents the subsets of [1,2,3,...,n]
+// The idea here is S(n) = S(n-1) + [for s in S(n-1), append(s, n)]
 package main
 
 import "fmt"
