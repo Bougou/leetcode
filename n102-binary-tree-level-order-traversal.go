@@ -24,41 +24,44 @@ package main
  *     Right *TreeNode
  * }
  */
-func levelOrder(root *TreeNode) [][]int {
+ func levelOrder(root *TreeNode) [][]int {
 	if root == nil {
-		return [][]int{}
+			return [][]int{}
 	}
-
-	allNodes := [][]*TreeNode{
-		[]*TreeNode{root},
+	
+	resNode := [][]*TreeNode{
+			[]*TreeNode{root},
 	}
-
-	allVals := [][]int{
-		[]int{root.Val},
+	
+	resVal := [][]int{
+			[]int{root.Val},
 	}
-
-	for {
-		nodes := []*TreeNode{}
-		vals := []int{}
-		for _, node := range allNodes[len(allNodes)-1] {
-			if node.Left != nil {
-				nodes = append(nodes, node.Left)
-				vals = append(vals, node.Left.Val)
+	
+	for i:= 0; ; i++{ 
+			nextLevelNode := []*TreeNode{}
+			nextLevelVal := []int{}
+			nextLevelCount := 0
+			for _, node := range resNode[i] {
+					if node.Left != nil {
+							nextLevelNode = append(nextLevelNode, node.Left)
+							nextLevelVal = append(nextLevelVal, node.Left.Val)
+							nextLevelCount++
+					}
+					
+					if node.Right != nil {
+							nextLevelNode = append(nextLevelNode, node.Right)
+							nextLevelVal = append(nextLevelVal, node.Right.Val)
+							nextLevelCount++
+					}
 			}
-
-			if node.Right != nil {
-				nodes = append(nodes, node.Right)
-				vals = append(vals, node.Right.Val)
+			
+			if nextLevelCount > 0 {
+					resNode = append(resNode, nextLevelNode)
+					resVal = append(resVal, nextLevelVal)
+			} else {
+					break
 			}
-		}
-
-		if len(nodes) > 0 {
-			allNodes = append(allNodes, nodes)
-			allVals = append(allVals, vals)
-		} else {
-			break
-		}
 	}
-
-	return allVals
+	
+	return resVal
 }

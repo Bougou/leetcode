@@ -2,7 +2,6 @@ package main
 
 func lengthOfLongestSubstring(s string) int {
 	ret := 0
-
 	curSub := []byte{}
 
 	for _, c := range []byte(s) {
